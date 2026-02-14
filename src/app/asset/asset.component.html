@@ -1,0 +1,62 @@
+<h2>Register Asset</h2>
+<form (ngSubmit)="register()">
+  <input [(ngModel)]="newAsset.assetName" name="assetName" placeholder="Asset Name" required />
+  <input [(ngModel)]="newAsset.assetCategory" name="assetCategory" placeholder="Category" required />
+  <input type="number" [(ngModel)]="newAsset.usefulLife" name="usefulLife" placeholder="Useful Life" required />
+  <input type="number" [(ngModel)]="newAsset.purchaseCost" name="purchaseCost" placeholder="Purchase Cost" required />
+  <button type="submit">Register</button>
+</form>
+
+<hr>
+
+<h2>Assign Asset</h2>
+<form (ngSubmit)="assign()">
+  <input [(ngModel)]="assignData.assetUid" name="assetUid" placeholder="Asset UID" required />
+  <input [(ngModel)]="assignData.assignedDepartment" name="assignedDepartment" placeholder="Department" required />
+  <button type="submit">Assign</button>
+</form>
+
+<hr>
+
+<h2>Dispose Asset</h2>
+<form (ngSubmit)="dispose()">
+  <input [(ngModel)]="disposeUid" name="disposeUid" placeholder="UID" required />
+  <button type="submit">Dispose</button>
+</form>
+
+<hr>
+
+<hr>
+
+<h2>All Assets</h2>
+<button (click)="loadAssets()">Refresh</button>
+
+<table border="1" cellpadding="8" cellspacing="0" *ngIf="assets.length > 0">
+  <thead>
+    <tr>
+      <th>UID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Useful Life</th>
+      <th>Purchase Cost</th>
+      <th>Status</th>
+      <th>Department</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let asset of assets">
+      <td>{{ asset.assetUid }}</td>
+      <td>{{ asset.assetName }}</td>
+      <td>{{ asset.category }}</td>
+      <td>{{ asset.usefulLife }} years</td>
+      <td>{{ asset.purchaseCost | currency:'GHS':'symbol':'1.2-2' }}</td>
+      <td>{{ asset.assetStatus }}</td>
+      <td>{{ asset.assignedDepartment }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="assets.length === 0">
+  No assets available.
+</p>
+
