@@ -2,12 +2,10 @@ package org.eaomp.enterpriseassetoperationsmanagementplatform.service;
 
 import lombok.RequiredArgsConstructor;
 import org.eaomp.enterpriseassetoperationsmanagementplatform.api.model.asset.AssetRequestModel;
-import org.eaomp.enterpriseassetoperationsmanagementplatform.domain.AssetStatus;
 import org.eaomp.enterpriseassetoperationsmanagementplatform.domain.model.dto.asset.AssetDepartmentDto;
 import org.eaomp.enterpriseassetoperationsmanagementplatform.domain.model.dto.asset.AssetDto;
 import org.eaomp.enterpriseassetoperationsmanagementplatform.domain.model.entity.AssetEntity;
 import org.eaomp.enterpriseassetoperationsmanagementplatform.domain.repo.AssetDataRepo;
-import org.eaomp.enterpriseassetoperationsmanagementplatform.domain.repo.DepartmentDataRepo;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -21,9 +19,6 @@ import static org.eaomp.enterpriseassetoperationsmanagementplatform.domain.model
 public class AssetService {
 
     private final AssetDataRepo assetDataRepo;
-    private final DepartmentDataRepo departmentDataRepo;
-
-
     public AssetDto createAsset(AssetRequestModel asset) {
         //basic validation
         validate(asset);

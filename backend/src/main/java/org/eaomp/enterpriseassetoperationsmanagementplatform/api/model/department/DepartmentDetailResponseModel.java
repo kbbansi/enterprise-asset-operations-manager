@@ -2,7 +2,6 @@ package org.eaomp.enterpriseassetoperationsmanagementplatform.api.model.departme
 
 
 import lombok.*;
-import org.eaomp.enterpriseassetoperationsmanagementplatform.domain.model.dto.department.DepartmentSummaryDto;
 import org.eaomp.enterpriseassetoperationsmanagementplatform.domain.model.dto.department.DepartmentWithAssetDto;
 
 @Getter
